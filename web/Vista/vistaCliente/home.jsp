@@ -541,10 +541,6 @@
     </section>
 
 
-    <!-- Blog -->
-
-    <!-- Instagram -->
-
 
     <!-- Shipping -->
     <section class="shipping bgwhite p-t-62 p-b-46">
