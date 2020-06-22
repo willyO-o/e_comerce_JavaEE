@@ -576,6 +576,7 @@
 
                 <span class="s-text11 t-center">
                     Shop open from Monday to Sunday
+                    
                 </span>
             </div>
         </div>
