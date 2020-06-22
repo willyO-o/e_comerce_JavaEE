@@ -76,7 +76,7 @@
                         <div class="block1-wrapbtn w-size2">
                             <!-- Button -->
                             <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                                Dresses
+                                VESTIDOS
                             </a>
                         </div>
                     </div>
@@ -88,7 +88,7 @@
                         <div class="block1-wrapbtn w-size2">
                             <!-- Button -->
                             <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                                Sunglasses
+                                GAFAS
                             </a>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
                         <div class="block1-wrapbtn w-size2">
                             <!-- Button -->
                             <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                                Watches
+                                RELOJES
                             </a>
                         </div>
                     </div>
@@ -114,7 +114,7 @@
                         <div class="block1-wrapbtn w-size2">
                             <!-- Button -->
                             <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                                Footerwear
+                                ZAPATILLAS
                             </a>
                         </div>
                     </div>
@@ -128,7 +128,7 @@
                         <div class="block1-wrapbtn w-size2">
                             <!-- Button -->
                             <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                                Bags
+                                BOLSOS
                             </a>
                         </div>
                     </div>

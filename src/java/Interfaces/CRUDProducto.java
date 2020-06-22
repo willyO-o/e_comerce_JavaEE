@@ -5,10 +5,22 @@
  */
 package Interfaces;
 
+import Modelo.Producto;
+import java.util.List;
+
 /**
  *
  * @author willy
  */
 public interface CRUDProducto {
     
+    public List Listar();
+
+    public Producto getProducto(int id);
+
+    public boolean add(Producto pr);
+
+    public boolean update(Producto pr);
+
+    public boolean delete(int id);
 }
