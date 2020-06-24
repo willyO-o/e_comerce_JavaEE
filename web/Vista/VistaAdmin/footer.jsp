@@ -40,6 +40,6 @@
 <script src="vendor/adminlte/dataTables.responsive.min.js"></script>
 <script src="vendor/adminlte/responsive.bootstrap4.min.js"></script>
 
-
+<script src="js/producto.js"></script>
 </body>
 </html>

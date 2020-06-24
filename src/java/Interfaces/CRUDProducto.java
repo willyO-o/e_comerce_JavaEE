@@ -8,19 +8,21 @@ package Interfaces;
 import Modelo.Producto;
 import java.util.List;
 
-/**
- *
- * @author willy
- */
 public interface CRUDProducto {
-    
+
     public List Listar();
 
     public Producto getProducto(int id);
 
-    public boolean add(Producto pr);
+    public int add(Producto pr);
 
-    public boolean update(Producto pr);
+    public int update(Producto pr);
 
-    public boolean delete(int id);
+    public int delete(int id);
+
+    public int existe(String pr);
+
+    public int images(int id, String im2, String im3, String im4);
+    
+    public int ultimoId();
 }
