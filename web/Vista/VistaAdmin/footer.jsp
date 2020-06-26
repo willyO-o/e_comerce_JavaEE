@@ -40,6 +40,23 @@
 <script src="vendor/adminlte/dataTables.responsive.min.js"></script>
 <script src="vendor/adminlte/responsive.bootstrap4.min.js"></script>
 
+
+<script src="vendor/adminlte/jquery.dataTables.min.js"></script>
+<script src="vendor/adminlte/dataTables.bootstrap4.min.js"></script>
+<script src="vendor/adminlte/dataTables.responsive.min.js"></script>
+<script src="vendor/adminlte/responsive.bootstrap4.min.js"></script>
+
+
+<script src="vendor/adminlte/dataTables.buttons.min.js"></script>
+<script src="vendor/adminlte/buttons.flash.min.js"></script>
+<script src="vendor/adminlte/buttons.html5.min.js"></script>
+<script src="vendor/adminlte/buttons.print.min.js"></script>
+<script src="vendor/adminlte/jszip.min.js"></script>
+<script src="vendor/adminlte/pdfmake.min.js"></script>
+<script src="vendor/adminlte/vfs_fonts.js"></script>
+
+
+
 <script src="js/producto.js"></script>
 </body>
 </html>

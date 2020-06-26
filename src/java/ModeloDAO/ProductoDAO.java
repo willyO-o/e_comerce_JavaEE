@@ -30,7 +30,7 @@ public class ProductoDAO implements CRUDProducto {
     @Override
     public List Listar() {
         List<Producto> lis = new ArrayList<>();
-        String sql = "SELECT * FROM producto JOIN categora USING(id_categoria) JOIN marca";
+        String sql = "SELECT * FROM producto JOIN categoria USING(id_categoria) JOIN marca USING(id_marca)";
         try {
             con = cn.getConexion();
             ps = con.prepareStatement(sql);

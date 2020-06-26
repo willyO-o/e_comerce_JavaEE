@@ -45,6 +45,8 @@
                                 <th>Imagen</th>
                                 <th>Precio (Bs.)</th>
                                 <th>Stock </th>
+                                <th>Stock Min.</th>
+                                <th>Garantia</th>
                                 <th>Categoria</th>
                                 <th>Marca</th>
                                 <th>Acciones</th>
@@ -57,6 +59,8 @@
                                 <th>Imagen</th>
                                 <th>Precio (Bs.)</th>
                                 <th>Stock </th>
+                                <th>Stock Min.</th>
+                                <th>Garantia</th>
                                 <th>Categoria</th>
                                 <th>Marca</th>
                                 <th>Acciones</th>

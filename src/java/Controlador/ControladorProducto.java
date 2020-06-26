@@ -85,13 +85,13 @@ public class ControladorProducto extends HttpServlet {
             p.setIdCat(Integer.parseInt(lista.get(6)));
             p.setIdMarc(Integer.parseInt(lista.get(7)));
             p.setGaran(lista.get(8));
-            if(pdao.add(p)==1){
-                p=new Producto();
+            if (pdao.add(p) == 1) {
+                p = new Producto();
                 p.setRes("exito");
-            }else{
+            } else {
                 p.setRes("error");
             }
-            
+
             json = objGson.toJson(p);
 
             response.setContentType("application/json");
@@ -110,6 +110,13 @@ public class ControladorProducto extends HttpServlet {
         String json;
         switch (accion) {
             case "listar":
+                List<Producto> lp1 = pdao.Listar();
+
+                json = objGson.toJson(lp1);
+                String data = "{\"data\":" + json + "}";
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write(data);
                 break;
             case "add":
                 break;
