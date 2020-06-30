@@ -12,9 +12,9 @@
         <%@include file="Vista/VistaAdmin/main.jsp" %>
         <%
             break;
-        case "about":
+        case "detalle":
         %>
-            <%@include file="Vista/VistaAdmin/main.jsp" %>
+            <%@include file="Vista/VistaAdmin/detalle.jsp" %>
         <%
             break;
         case "carrito":

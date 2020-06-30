@@ -64,3 +64,6 @@
         <meta name="theme-color" content="#fafafa">
     </head>
     <body class="animsition">
+<sql:setDataSource var = "conn" driver = "com.mysql.jdbc.Driver"
+                   url = "jdbc:mysql://localhost/bd_proyecto"
+                   user = "root"  password = ""/>

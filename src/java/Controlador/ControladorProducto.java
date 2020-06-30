@@ -37,11 +37,10 @@ public class ControladorProducto extends HttpServlet {
             throws ServletException, IOException {
         //System.out.println("llego al request");
         String accion = request.getParameter("accion");
-        System.out.println(accion);
-
+        Gson objGson = new Gson();
+        String json;
         if (accion.equals("add")) {
-            Gson objGson = new Gson();
-            String json;
+
             ArrayList<String> lista = new ArrayList<>();
             try {
                 FileItemFactory file = new DiskFileItemFactory();
@@ -99,6 +98,39 @@ public class ControladorProducto extends HttpServlet {
             response.getWriter().write(json);
 
         }
+        if (accion.equalsIgnoreCase("update")) {
+            idp = Integer.parseInt(request.getParameter("idp"));
+
+            String pro = request.getParameter("prod");
+            String des = request.getParameter("desc");
+            String car = request.getParameter("carac");
+            double pre = Double.parseDouble(request.getParameter("prec"));
+            int stoc = Integer.parseInt(request.getParameter("stoc"));
+            int stocmin = Integer.parseInt(request.getParameter("stocmin"));
+            int cate = Integer.parseInt(request.getParameter("cate"));
+            int marc = Integer.parseInt(request.getParameter("marc"));
+            String garan = request.getParameter("garan");
+            
+            p.setInPro(idp);
+            p.setPro(pro);
+            p.setDesPro(des);
+            p.setCarPro(car);
+            p.setStock(stoc);
+            p.setPreVenta(pre);
+            p.setStockMin(stocmin);
+            p.setIdCat(cate);
+            p.setIdMarc(marc);
+            p.setGaran(garan);
+            pdao.update(p);
+            p.setRes("exito");
+            
+            json = objGson.toJson(p);
+
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(json);
+            p=new Producto();
+        }
 
     }
 
@@ -118,16 +150,7 @@ public class ControladorProducto extends HttpServlet {
                 response.setCharacterEncoding("UTF-8");
                 response.getWriter().write(data);
                 break;
-            case "add":
-                break;
-            case "edit":
-                break;
-            case "update":
-                break;
-            case "delete":
-                break;
-            case "":
-                break;
+
         }
         processRequest(request, response);
     }
@@ -144,23 +167,28 @@ public class ControladorProducto extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String accion = "add";//request.getParameter("accion");
+        String accion = request.getParameter("accion");
         Gson objGson = new Gson();
         String json;
         //System.out.println(accion);
         switch (accion) {
-            case "listar":
+            case "getPr":
+                idp = Integer.parseInt(request.getParameter("idp"));
+                Producto pr = pdao.getProducto(idp);
+                json = objGson.toJson(pr);
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write(json);
                 break;
-            case "add":
 
-                break;
-            case "edit":
-                break;
-            case "update":
-                break;
             case "delete":
-                break;
-            case "":
+                idp=Integer.parseInt(request.getParameter("id"));
+                pdao.delete(idp);
+                p.setRes("exito");
+                json = objGson.toJson(p);
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write(json);
                 break;
         }
         processRequest(request, response);

@@ -164,7 +164,7 @@
 
 <script src="vendor/modernizr-3.11.2.min.js"></script>
 <script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
+
 
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <script>
@@ -210,7 +210,7 @@
     $('.block2-btn-addcart').each(function () {
         var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
         $(this).on('click', function () {
-            swal(nameProduct, "Añadido al Carrito!", "success");
+            
         });
     });
 
@@ -260,7 +260,7 @@
     });
 </script>
 <script src="js/main.min.js"></script>
-
+<script src="js/maine.js"></script>
 </body>
 
 </html>

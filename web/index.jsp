@@ -1,3 +1,5 @@
+<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="Vista/vistaCliente/header.jsp" %>
 <%@include file="Vista/vistaCliente/navegacion.jsp" %>
 <% 
@@ -33,7 +35,7 @@
             break;
         default:
         %>
-        <%@include file="Vista/vistaCliente/producto.jsp" %>
+        <%@include file="Vista/vistaCliente/home.jsp" %>
         <%
             break;
         case "producto":
