@@ -5,11 +5,10 @@
  */
 package Controlador;
 
-import Modelo.Marca;
-import ModeloDAO.MarcaDAO;
+import Modelo.Cliente;
+import ModeloDAO.ClienteDAO;
 import com.google.gson.Gson;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,11 +19,17 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author willy
  */
-public class ControladorMarca extends HttpServlet {
+public class ControladorCliente extends HttpServlet {
 
-    int idmr;
-    Marca m = new Marca();
-    MarcaDAO mdao = new MarcaDAO();
+    Cliente c = new Cliente();
+    ClienteDAO cdao = new ClienteDAO();
+    int id;
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+
+    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -35,7 +40,8 @@ public class ControladorMarca extends HttpServlet {
 
         switch (accion) {
             case "listar":
-                List<Marca> lp1 = mdao.listar();
+                List<Cliente> lp1 = cdao.listar();
+
                 json = objGson.toJson(lp1);
                 String data = "{\"data\":" + json + "}";
                 response.setContentType("application/json");
@@ -43,7 +49,7 @@ public class ControladorMarca extends HttpServlet {
                 response.getWriter().write(data);
                 break;
         }
-
+        processRequest(request, response);
     }
 
     @Override
@@ -52,55 +58,57 @@ public class ControladorMarca extends HttpServlet {
         String accion = request.getParameter("accion");
         Gson objGson = new Gson();
         String json;
+
         switch (accion) {
+
             case "add":
-                String marca = request.getParameter("marca");
-                m.setMar(marca);
-                mdao.add(m);
-                m.setRes("exito");
-                json = objGson.toJson(m);
+                String nom = request.getParameter("nom");
+                String ape = request.getParameter("ape");
+                String ci = request.getParameter("ci");
+                String email = request.getParameter("email");
+                String pass = request.getParameter("pass");
+                String tel = request.getParameter("tel");
+                String dir = request.getParameter("dir");
+                int ciu = Integer.parseInt(request.getParameter("ciu"));
 
+                c = new Cliente(0, nom, ape, ci, email, pass, tel, dir, "", ciu, "", "");
+
+                cdao.add(c);
+                c.setRes("exito");
+                json = objGson.toJson(c);
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
                 response.getWriter().write(json);
+
                 break;
+            case "contact":
 
-            case "edit":
-                idmr = Integer.parseInt(request.getParameter("id"));
-                m = mdao.getCat(idmr);
-                m.setRes("exito");
-                json = objGson.toJson(m);
-                
+                String name = request.getParameter("name");
+                String phone = request.getParameter("phone");
+                String ema = request.getParameter("email");
+                String mess = request.getParameter("message");
+                cdao.addContacto(name, phone, ema, mess);
+                System.out.println("ejecuto");
+                c = new Cliente();
+                c.setRes("exito");
+                json = objGson.toJson(c);
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
                 response.getWriter().write(json);
-                break;
-            case "update":
-                idmr = Integer.parseInt(request.getParameter("id"));
-                String marca1 = request.getParameter("marca");
-                m.setIdMar(idmr);
-                m.setMar(marca1);
-                mdao.update(m);
-                m.setRes("exito");
-                json = objGson.toJson(m);
 
-                response.setContentType("application/json");
-                response.setCharacterEncoding("UTF-8");
-                response.getWriter().write(json);
                 break;
             case "delete":
-                idmr = Integer.parseInt(request.getParameter("id"));
-                mdao.delete(idmr);
-                
-                m=new Marca();
-                m.setRes("exito");
-                json = objGson.toJson(m);
-
+                id = Integer.parseInt(request.getParameter("id"));
+                cdao.delete(id);
+                c = new Cliente();
+                c.setRes("exito");
+                json = objGson.toJson(c);
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
                 response.getWriter().write(json);
                 break;
         }
+        processRequest(request, response);
     }
 
     /**

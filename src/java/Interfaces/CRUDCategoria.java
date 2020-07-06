@@ -15,7 +15,7 @@ import java.util.List;
 public interface CRUDCategoria {
     public List listar();
     public int add(Categoria cat);
-    public int update(int id);
+    public int update(Categoria id);
     public int delete(int id);
     public Categoria getCat(int id);
 }

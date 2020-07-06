@@ -1,6 +1,38 @@
 $(function () {
     'use strict';
 
+    // colocando la clase activa a la navegacion
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+    navegacion();
+    function navegacion() {
+        var menu = getParameterByName('menu');
+        switch (menu) {
+            case "home":
+                $(".menu  ul li:nth-child(1)").addClass("sale-noti");
+                break;
+            case "tienda":
+                $(".menu  ul li:nth-child(2)").addClass("sale-noti");
+                break;
+            case "carrito":
+                $(".menu  ul li:nth-child(3)").addClass("sale-noti");
+                break;
+            case "about":
+                $(".menu  ul li:nth-child(4)").addClass("sale-noti");
+                break;
+            case "contacto":
+                $(".menu  ul li:nth-child(5)").addClass("sale-noti");
+                break;
+            case "":
+                $(".menu  ul li:nth-child(1)").addClass("sale-noti");
+                break;
+        }
+    }//fin navegacion activa
+
     $(".btn-add-al-carrito").on("click", function () {
         let id = $(this).attr("idpr");
         let input = $("#cantidad-producto-add");
@@ -102,9 +134,113 @@ $(function () {
             }
         });
     });
+
+    $("#form-pedido").on("submit", function (e) {
+        e.preventDefault();
+        let datos = $(this).serializeArray();
+        let t = $(".total-del-carrito").text();
+
+        if (t > 0) {
+
+            $.ajax({
+                type: "post",
+                url: "ControladorPedido",
+                data: datos,
+                dataType: "json",
+                success: function (data) {
+                    //console.log(data);
+                    if(data.res==="exito"){
+                        swal("Listo", "Pedido Registrado, Les enviamos un email de confirmacion", "success");
+                        setTimeout(function () {
+                            location.reload();
+                        }, 2500);
+                    }else{
+                        swal("Error", "ocurrio un error!", "error");
+                    }
+                }
+            });
+        }
+    });
+
+    $(".btn-sletter").on("click",function(e){
+        e.preventDefault();
+        swal("Suscrito...","gracias por Suscribirte","success");
+    });
+    
+    //formulario de contacto
+    $("#form-contacto").on("submit",function (e){
+        e.preventDefault();
+        let form=$(this);
+        registrar(form);
+    });
+    
+    //loguearse
+    $("#form-login").on("submit", function (e) {
+        e.preventDefault();
+        let datos = $(this).serializeArray();
+        $.ajax({
+            type: "post",
+            url: "Validar",
+            dataType: "json",
+            data: datos,
+            success: function (data) {
+                console.log(data)
+                switch (data.res) {
+                    case "user":
+                        swal("Listo", "Bienvenido: " + data.nom, "success");
+                        swal("Listo", "Bienvenido: " + data.nom, "success");
+                        setTimeout(function () {
+                            location.href = "admin.jsp";
+                        }
+                        , 2000);
+                        break;
+                    case "cliente":
+                        swal("Listo", "Bienvenido: " + data.nom, "success");
+                        setTimeout(function () {
+                            location.reload();
+                        }
+                        , 2000);
+
+                        break;
+                    default :
+                        swal("Datos Erroneos", "Error: Correo o Password Incorrectos!", "error");
+                        break;
+                }
+            }
+
+        });
+    });
+
+
+    //clientes registrarse
+    $("#form-cliente").on("submit", function (e) {
+        e.preventDefault();
+        let form = $(this);
+        registrar(form);
+
+    });
+    function registrar(form) {
+        let datos = form.serializeArray();
+        $.ajax({
+            type: form.attr("method"),
+            url: form.attr("action"),
+            data: datos,
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+                if (data.res === "exito") {
+                    form[0].reset();
+                    swal("Listo", "Registro Exitoso!", "success");
+                } else {
+                    swal("Error", "ocurrio un error!", "error");
+                }
+            }
+        });
+    }
+
     getTotal();
     function getTotal() {
-        
+
         $.ajax({
             type: "POST",
             url: "ControladorCarrito",

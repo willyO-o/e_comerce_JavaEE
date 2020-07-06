@@ -12,19 +12,16 @@
             </div>
 
             <span class="topbar-child1">
-                Free shipping for standard order over $100
+                <span class="topbar-email">
+                    SandrasBolivia@gmail.com             
+                </span>
             </span>
 
             <div class="topbar-child2">
-                <span class="topbar-email">
-                    fashe@example.com
-                </span>
+                
 
-                <div class="topbar-language rs1-select2">
-                    <select class="selection-1" name="time">
-                        <option>USD</option>
-                        <option>EUR</option>
-                    </select>
+                <div class="topbar-language ">
+                    <a href="?menu=registro">Registrarse</a>
                 </div>
             </div>
         </div>
@@ -47,10 +44,6 @@
                             <a href="?menu=tienda">Tienda</a>
                         </li>
 
-                        <li class="sale-noti">
-                            <a href="?menu=home">Sale</a>
-                        </li>
-
                         <li>
                             <a href="?menu=carrito">Carrito</a>
                         </li>
@@ -68,9 +61,26 @@
 
             <!-- Header Icon -->
             <div class="header-icons">
-                <a href="#" class="header-wrapicon1 dis-block">
+                <a href="#" class="header-wrapicon1 dis-block"
+                   <c:if test="${sessionScope.tipo == null}">  
+                       type="button"  data-toggle="modal" data-target="#modal-login"
+                   </c:if> 
+                    <c:if test="${sessionScope.tipo != null}">  
+                       role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                   </c:if> 
+                   >
                     <img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+                    <c:if test="${sessionScope.tipo != null}">  
+                       <span class="header-icons-notify">menu</span>
+                   </c:if> 
+                    
                 </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" >Uusario: <b>${sessionScope.nombre}</b> </a>
+                    <a class="dropdown-item" href="Validar?accion=salir"><i class="fa fa-sign-out" aria-hidden="true"></i> Cerrar Session</a>
+
+                </div>
 
                 <span class="linedivide1"></span>
 
@@ -121,7 +131,7 @@
 
                             <div class="header-cart-wrapbtn">
                                 <!-- Button -->
-                                <a href="?menu=pedido" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                <a href="?menu=carrito" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
                                     Comprar
                                 </a>
                             </div>

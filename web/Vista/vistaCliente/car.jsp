@@ -1,6 +1,4 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<ul class="header-cart-wrapitem">
-
 
     <c:set var="total"  value="${0}"/>  
         <ul class="header-cart-wrapitem">

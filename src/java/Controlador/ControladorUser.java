@@ -5,8 +5,8 @@
  */
 package Controlador;
 
-import Modelo.Marca;
-import ModeloDAO.MarcaDAO;
+import Modelo.Usuario;
+import ModeloDAO.UsuarioDAO;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,11 +20,19 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author willy
  */
-public class ControladorMarca extends HttpServlet {
+public class ControladorUser extends HttpServlet {
 
-    int idmr;
-    Marca m = new Marca();
-    MarcaDAO mdao = new MarcaDAO();
+    int id;
+    
+    Usuario u=new Usuario();
+    UsuarioDAO udao=new UsuarioDAO();
+    
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+
+    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -35,7 +43,7 @@ public class ControladorMarca extends HttpServlet {
 
         switch (accion) {
             case "listar":
-                List<Marca> lp1 = mdao.listar();
+                List<Usuario> lp1 = udao.listar();
                 json = objGson.toJson(lp1);
                 String data = "{\"data\":" + json + "}";
                 response.setContentType("application/json");
@@ -43,8 +51,9 @@ public class ControladorMarca extends HttpServlet {
                 response.getWriter().write(data);
                 break;
         }
-
+        processRequest(request, response);
     }
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -54,11 +63,17 @@ public class ControladorMarca extends HttpServlet {
         String json;
         switch (accion) {
             case "add":
-                String marca = request.getParameter("marca");
-                m.setMar(marca);
-                mdao.add(m);
-                m.setRes("exito");
-                json = objGson.toJson(m);
+                String nom = request.getParameter("nom");
+                String ape = request.getParameter("ape");
+                String ema = request.getParameter("email");
+                String pas = request.getParameter("pas");
+                u.setNom(nom);
+                u.setApe(ape);
+                u.setEmail(ema);
+                u.setPass(pas);
+                udao.add(u);
+                u.setRes("exito");
+                json = objGson.toJson(u);
 
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
@@ -66,41 +81,61 @@ public class ControladorMarca extends HttpServlet {
                 break;
 
             case "edit":
-                idmr = Integer.parseInt(request.getParameter("id"));
-                m = mdao.getCat(idmr);
-                m.setRes("exito");
-                json = objGson.toJson(m);
+                id = Integer.parseInt(request.getParameter("id"));
+                u = udao.getCat(id);
+                u.setRes("exito");
+                json = objGson.toJson(u);
                 
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
                 response.getWriter().write(json);
                 break;
             case "update":
-                idmr = Integer.parseInt(request.getParameter("id"));
-                String marca1 = request.getParameter("marca");
-                m.setIdMar(idmr);
-                m.setMar(marca1);
-                mdao.update(m);
-                m.setRes("exito");
-                json = objGson.toJson(m);
+                id = Integer.parseInt(request.getParameter("id"));
+                String nom1 = request.getParameter("nom");
+                String ape1 = request.getParameter("ape");
+                String ema1 = request.getParameter("email");
+                String pas1 = request.getParameter("pas");
+                u.setIdUs(id);
+                u.setEmail(ema1);
+                u.setNom(nom1);
+                u.setApe(ape1);
+                u.setPass(pas1);
+                udao.update(u);
+                u.setRes("exito");
+                json = objGson.toJson(u);
 
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
                 response.getWriter().write(json);
                 break;
             case "delete":
-                idmr = Integer.parseInt(request.getParameter("id"));
-                mdao.delete(idmr);
+                id = Integer.parseInt(request.getParameter("id"));
+                udao.delete(id);
                 
-                m=new Marca();
-                m.setRes("exito");
-                json = objGson.toJson(m);
+                u=new Usuario();
+                u.setRes("exito");
+                json = objGson.toJson(u);
 
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
                 response.getWriter().write(json);
                 break;
+            case "upEstado":
+                id = Integer.parseInt(request.getParameter("id"));
+                int est=Integer.parseInt(request.getParameter("est"));
+                udao.upEstado(id, est);
+                u=new Usuario();
+                u.setRes("exito");
+                json = objGson.toJson(u);
+
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write(json);
+                break;
+               
         }
+        processRequest(request, response);
     }
 
     /**

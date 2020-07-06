@@ -18,7 +18,7 @@ public interface CRUDMarca {
 
     public int add(Marca cat);
 
-    public int update(int id);
+    public int update(Marca id);
 
     public int delete(int id);
 

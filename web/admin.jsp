@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="Vista/VistaAdmin/control.jsp" %>
 <%@include file="Vista/VistaAdmin/header.jsp" %>
 <%@include file="Vista/VistaAdmin/aside.jsp" %>
@@ -12,24 +13,24 @@
         <%@include file="Vista/VistaAdmin/main.jsp" %>
         <%
             break;
-        case "detalle":
+        case "clientes":
         %>
-            <%@include file="Vista/VistaAdmin/detalle.jsp" %>
+            <%@include file="Vista/VistaAdmin/clientes.jsp" %>
         <%
             break;
-        case "carrito":
+        case "pedidos":
         %>
-        <%@include file="Vista/VistaAdmin/main.jsp" %>
+        <%@include file="Vista/VistaAdmin/pedidos.jsp" %>
         <%
             break;
-        case "contacto":
+        case "ventas":
         %>
-        <%@include file="Vista/VistaAdmin/main.jsp" %>
+        <%@include file="Vista/VistaAdmin/ventas.jsp" %>
         <%
             break;
-        case "tienda":
+        case "marcas":
         %>
-        <%@include file="Vista/VistaAdmin/main.jsp" %>
+        <%@include file="Vista/VistaAdmin/marcas.jsp" %>
         <%
             break;
 
@@ -38,6 +39,11 @@
         <%@include file="Vista/VistaAdmin/productos.jsp" %>
         <%
             break; 
+        case "usuarios":
+        %>
+        <%@include file="Vista/VistaAdmin/usuarios.jsp" %>
+        <%
+            break;
         default:
         %>
         <%@include file="Vista/VistaAdmin/main.jsp" %>

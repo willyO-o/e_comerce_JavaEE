@@ -29,25 +29,25 @@
             <ul>
                 <li class="p-b-9">
                     <a href="#" class="s-text7">
-                        Men
+                        Varones
                     </a>
                 </li>
 
                 <li class="p-b-9">
                     <a href="#" class="s-text7">
-                        Women
+                        Mujeres
                     </a>
                 </li>
 
                 <li class="p-b-9">
                     <a href="#" class="s-text7">
-                        Dresses
+                        Niños
                     </a>
                 </li>
 
                 <li class="p-b-9">
                     <a href="#" class="s-text7">
-                        Sunglasses
+                        Accesorios
                     </a>
                 </li>
             </ul>
@@ -124,13 +124,13 @@
 
             <form>
                 <div class="effect1 w-size9">
-                    <input class="s-text7 bg6 w-full p-b-5" type="text" name="email" placeholder="email@example.com">
+                    <input class="s-text7 bg6 w-full p-b-5" type="text" name="email" placeholder="Ingresa tu email para Suscribirte" required="">
                     <span class="effect1-line"></span>
                 </div>
 
                 <div class="w-size2 p-t-20">
                     <!-- Button -->
-                    <button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
+                    <button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4 btn-sletter">
                         Subscribe
                     </button>
                 </div>
@@ -261,6 +261,7 @@
 </script>
 <script src="js/main.min.js"></script>
 <script src="js/maine.js"></script>
+
 </body>
 
 </html>

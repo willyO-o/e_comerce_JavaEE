@@ -12,14 +12,26 @@ package Modelo;
 public class Marca {
     private int idMar;
     private String mar;
+    private String res;
 
     public Marca() {
     }
 
-    public Marca(int idMar, String mar) {
+    public Marca(int idMar, String mar, String res) {
         this.idMar = idMar;
         this.mar = mar;
+        this.res = res;
     }
+
+    public String getRes() {
+        return res;
+    }
+
+    public void setRes(String res) {
+        this.res = res;
+    }
+
+
 
     public int getIdMar() {
         return idMar;

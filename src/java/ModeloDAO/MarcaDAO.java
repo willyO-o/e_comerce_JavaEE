@@ -50,21 +50,70 @@ public class MarcaDAO implements CRUDMarca {
 
     @Override
     public int add(Marca cat) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "INSERT INTO marca VALUES(null,?)";
+        try {
+            con = cn.getConexion();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, cat.getMar());
+            r = ps.executeUpdate();
+
+        } catch (SQLException e) {
+        } finally {
+            cn.cerrar();
+        }
+        return r;
     }
 
     @Override
-    public int update(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int update(Marca id) {
+        String sql = "UPDATE marca SET marca=? WHERE id_marca=?";
+        try {
+            con = cn.getConexion();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, id.getMar());
+            ps.setInt(2, id.getIdMar());
+            r = ps.executeUpdate();
+
+        } catch (SQLException e) {
+        } finally {
+            cn.cerrar();
+        }
+        return r;
     }
 
     @Override
     public int delete(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "DELETE FROM marca WHERE id_marca=" + id;
+        try {
+            con = cn.getConexion();
+            ps = con.prepareStatement(sql);
+            r = ps.executeUpdate();
+
+        } catch (SQLException e) {
+        } finally {
+            cn.cerrar();
+        }
+
+        return r;
     }
 
     @Override
     public Marca getCat(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "SELECT * FROM marca WHERE id_marca=" + id;
+        Marca p = new Marca();
+        try {
+            con = cn.getConexion();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            rs.next();
+
+            p.setIdMar(rs.getInt(1));
+            p.setMar(rs.getString(2));
+
+        } catch (SQLException e) {
+        } finally {
+            cn.cerrar();
+        }
+        return p;
     }
 }

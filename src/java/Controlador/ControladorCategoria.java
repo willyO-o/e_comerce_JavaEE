@@ -30,9 +30,16 @@ public class ControladorCategoria extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String accion = request.getParameter("accion");
+        Gson objGson = new Gson();
+        String json;
         switch (accion) {
             case "listar":
-
+                List<Categoria> lp1 = cdao.listar();
+                json = objGson.toJson(lp1);
+                String data = "{\"data\":" + json + "}";
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write(data);
                 break;
         }
     }
@@ -52,9 +59,52 @@ public class ControladorCategoria extends HttpServlet {
         Gson objGson = new Gson();
         String json;
         switch (accion) {
-            case "listar":
-                List<Categoria> li = cdao.listar();
-                json = objGson.toJson(li);
+            case "add":
+
+                String cate = request.getParameter("cate");
+                String des = request.getParameter("des");
+                c.setCate(cate);
+                c.setDesc(des);
+                cdao.add(c);
+                c.setRes("exito");
+                json = objGson.toJson(c);
+                
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write(json);
+                break;
+            case "edit":
+                idcat = Integer.parseInt(request.getParameter("id"));
+                c = cdao.getCat(idcat);
+                c.setRes("exito");
+                json = objGson.toJson(c);
+
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write(json);
+                break;
+            case "update":
+                idcat = Integer.parseInt(request.getParameter("id"));
+                String cate1 = request.getParameter("cate");
+                String des1 = request.getParameter("des");
+                c.setIdCat(idcat);
+                c.setCate(cate1);
+                c.setDesc(des1);
+                cdao.update(c);
+                c.setRes("exito");
+                json = objGson.toJson(c);
+
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write(json);
+                break;
+            case "delete":
+                idcat = Integer.parseInt(request.getParameter("id"));
+                cdao.delete(idcat);
+
+                c = new Categoria();
+                c.setRes("exito");
+                json = objGson.toJson(c);
 
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");

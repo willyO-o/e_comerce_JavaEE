@@ -5,12 +5,18 @@
  */
 package Controlador;
 
+import Modelo.Cliente;
+import Modelo.Usuario;
+import ModeloDAO.ClienteDAO;
+import ModeloDAO.UsuarioDAO;
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -18,66 +24,79 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class Validar extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Validar</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Validar at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String accion=request.getParameter("accion");
+        if (accion.equalsIgnoreCase("salir")) {
+            HttpSession session=request.getSession();
+            session.invalidate();
+            response.sendRedirect("index.jsp");
+        }
         processRequest(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        String accion=request.getParameter("accion");
+        
+        if(accion.equals("login")){
+            String email=request.getParameter("email");
+            String pass=request.getParameter("pass");
+            Gson objGson = new Gson();
+            
+            ClienteDAO cdao=new ClienteDAO();
+            UsuarioDAO udao=new UsuarioDAO();
+            
+            Cliente c=cdao.validar(email, pass);
+            Usuario u = udao.validar(email, pass);
+            HttpSession session=request.getSession();
+            //System.out.println("normal+");
+            if (u.getNom() != null) {
+                u.setRes("user");
+
+                session.setAttribute("id", u.getIdUs());
+                session.setAttribute("nombre", u.getNom());
+                session.setAttribute("apellido", u.getApe());
+                session.setAttribute("email", u.getEmail());
+                session.setAttribute("tipo", "admin");
+                String json = objGson.toJson(u);
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write(json);
+                
+            } else if (c.getNom() != null) {
+                
+                c.setRes("cliente");
+                session.setAttribute("id", c.getIdCl());
+                session.setAttribute("nombre", c.getNom());
+                session.setAttribute("apellido", c.getApe());
+                session.setAttribute("email", c.getEmail());
+                session.setAttribute("tipo", "cliente");
+                String json = objGson.toJson(c);
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write(json);
+            }else{
+                c.setRes("error");
+                String json = objGson.toJson(c);
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write(json);
+            }
+        }
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
+
     @Override
     public String getServletInfo() {
         return "Short description";

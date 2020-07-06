@@ -33,6 +33,11 @@
         <%@include file="Vista/vistaCliente/tienda.jsp" %>
         <%
             break;
+        case "registro":
+        %>
+        <%@include file="Vista/vistaCliente/registro.jsp" %>
+        <%
+            break;
         default:
         %>
         <%@include file="Vista/vistaCliente/home.jsp" %>

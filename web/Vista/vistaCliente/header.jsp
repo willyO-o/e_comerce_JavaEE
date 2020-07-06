@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="es">
 
     <head>
         <meta charset="utf-8">
@@ -64,6 +64,50 @@
         <meta name="theme-color" content="#fafafa">
     </head>
     <body class="animsition">
-<sql:setDataSource var = "conn" driver = "com.mysql.jdbc.Driver"
-                   url = "jdbc:mysql://localhost/bd_proyecto"
-                   user = "root"  password = ""/>
+        <sql:setDataSource var = "conn" driver = "com.mysql.jdbc.Driver"
+                           url = "jdbc:mysql://localhost/bd_proyecto"
+                           user = "root"  password = ""/>
+
+
+        <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form action="Validar" method="post" id="form-login">
+                        <div class="modal-header ">
+                            <h5 class="modal-title text-center" id="exampleModalLabel">Login</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+
+                            <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                            <div class="input-group mb-2 mr-sm-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fa fa-user"></i></div>
+                                </div>
+                                <input type="email" name="email" class="sizefull s-text7 p-l-22 p-r-22" placeholder="Ingrese su Correo Electronico" required="">
+                            </div><hr><br>
+
+                            <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                            <div class="input-group mb-2 mr-sm-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fa fa-lock"></i></div>
+                                </div>
+                                <input type="password" name="pass" class="sizefull s-text7 p-l-22 p-r-22"  placeholder="Ingrese su Contraseña" required="">
+                            </div><hr>
+                            
+                            <div class="input-group mb-2 mr-sm-2">
+                                <a href="?menu=registro"> Sino tienes cuenta puedes registrarte haciendo clic Aqui Regisrarse</a>
+                            </div>
+
+                        </div>
+                        <input type="hidden" name="accion" value="login">
+                        <div class="modal-footer ">
+                            <button type="submit" class="btn btn-primary mb-2 flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4" >Login </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
