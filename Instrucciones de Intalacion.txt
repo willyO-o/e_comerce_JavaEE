@@ -5,7 +5,7 @@ requisitos:
 tener instalado xamp, wamp o mamp; o cualquier programa que ejecute MySql
 tener instalado apache tomcat v 8.*
 
---ejecutar mysql
+--ejecutar mysql  con phpMyAdmin
 
 1. en mysql crear la base de datos con el nombre: bd_proyecto   con la 
 2. dentro de la base de datos bd_proyecto importar el archivo: "bd_proyecto.sql" que contiene la base de datos del proyecto
