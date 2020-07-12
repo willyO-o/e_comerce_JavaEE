@@ -142,17 +142,17 @@
 
                     <div class="block2-content sizefull ab-t-l flex-col-c-m">
                         <h4 class="m-text4 t-center w-size3 p-b-8">
-                            Sign up & get 20% off
+                            Inicia sesion y obten maravillosos descuentos
                         </h4>
 
                         <p class="t-center w-size4">
-                            Be the frist to know about the latest fashion news and get exclu-sive offers
+                            Tenemos ofertas exclusivas
                         </p>
 
                         <div class="w-size2 p-t-25">
                             <!-- Button -->
                             <a href="#" class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
-                                Sign Up
+                                Iniciar Sesion
                             </a>
                         </div>
                     </div>
@@ -167,7 +167,8 @@
     <div class="container">
         <div class="sec-title p-b-60">
             <h3 class="m-text5 t-center">
-                Featured Products
+
+                Productos Destacados
             </h3>
         </div>
 
@@ -176,35 +177,35 @@
             <div class="slick2">
                 <!-- producto -->
                 <c:forEach var = "r" items = "${rs.rows}">
-                <div class="item-slick2 p-l-15 p-r-15">
-                    <!-- Block2 -->
-                    <div class="block2">
-                        <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                            <img src="${r.imagen}" alt="IMG-PRODUCT" >
+                    <div class="item-slick2 p-l-15 p-r-15">
+                        <!-- Block2 -->
+                        <div class="block2">
+                            <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+                                <img src="${r.imagen}" alt="IMG-PRODUCT" >
 
-                            <div class="block2-overlay trans-0-4">
+                                <div class="block2-overlay trans-0-4">
 
 
-                                <div class="block2-btn-addcart w-size1 trans-0-4">
-                                    <!-- Button -->
-                                    <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4 btn-add-al-carrito" idpr="${r.id_producto}">
-                                        Add to Cart
-                                    </button>
+                                    <div class="block2-btn-addcart w-size1 trans-0-4">
+                                        <!-- Button -->
+                                        <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4 btn-add-al-carrito" idpr="${r.id_producto}">
+                                            Add to Cart
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="block2-txt p-t-20">
-                            <a href="?menu=producto&id=${r.id_producto}" class="block2-name dis-block s-text3 p-b-5">
-                                ${r.producto}
-                            </a>
+                            <div class="block2-txt p-t-20">
+                                <a href="?menu=producto&id=${r.id_producto}" class="block2-name dis-block s-text3 p-b-5">
+                                    ${r.producto}
+                                </a>
 
-                            <span class="block2-price m-text6 p-r-5">
-                                ${r.precio_venta}
-                            </span>
+                                <span class="block2-price m-text6 p-r-5">
+                                    ${r.precio_venta}
+                                </span>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </c:forEach>
                 <!-- producto -->
 
@@ -224,15 +225,15 @@
 
                     <div class="ab-t-l sizefull flex-col-c-m p-l-15 p-r-15">
                         <span class="m-text9 p-t-45 fs-20-sm">
-                            The Beauty
+                            La belleza
                         </span>
 
                         <h3 class="l-text1 fs-35-sm">
-                            Lookbook
+                            Catalogo
                         </h3>
 
                         <a href="#" class="s-text4 hov2 p-t-20 ">
-                            View Collection
+                            Ver coleccion
                         </a>
                     </div>
                 </div>
@@ -249,11 +250,11 @@
                             </a>
 
                             <span class="block2-oldprice m-text7 p-r-5">
-                                $29.50
+                                Bs. 250
                             </span>
 
                             <span class="block2-newprice m-text8">
-                                $15.90
+                                Bs. 220
                             </span>
                         </div>
 
@@ -264,7 +265,7 @@
                                 </span>
 
                                 <span class="s-text5">
-                                    days
+                                    dias
                                 </span>
                             </div>
 
@@ -294,7 +295,7 @@
                                 </span>
 
                                 <span class="s-text5">
-                                    secs
+                                    segs
                                 </span>
                             </div>
                         </div>
@@ -312,31 +313,31 @@
     <div class="flex-w p-l-15 p-r-15">
         <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
             <h4 class="m-text12 t-center">
-                Free Delivery Worldwide
+                Envios a todas las cuidades disponibles
             </h4>
 
             <a href="#" class="s-text11 t-center">
-                Click here for more info
+                Click para mas informacion
             </a>
         </div>
 
         <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 bo2 respon2">
             <h4 class="m-text12 t-center">
-                30 Days Return
+                5 Dias de Prueba
             </h4>
 
             <span class="s-text11 t-center">
-                Simply return it within 30 days for an exchange.
+                Cualquier defecto con 30 dias de devolucion
             </span>
         </div>
 
         <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
             <h4 class="m-text12 t-center">
-                Store Opening
+                Tienda Abierta
             </h4>
 
             <span class="s-text11 t-center">
-                Shop open from Monday to Sunday
+                Tienda abierta de lunes a domingo
 
             </span>
         </div>

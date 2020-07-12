@@ -53,6 +53,14 @@ public class ControladorMarca extends HttpServlet {
         Gson objGson = new Gson();
         String json;
         switch (accion) {
+            case "listar":
+                List<Marca> lp1 = mdao.listar();
+                json = objGson.toJson(lp1);
+                
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write(json);
+                break;
             case "add":
                 String marca = request.getParameter("marca");
                 m.setMar(marca);

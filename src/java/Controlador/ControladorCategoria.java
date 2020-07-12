@@ -59,6 +59,14 @@ public class ControladorCategoria extends HttpServlet {
         Gson objGson = new Gson();
         String json;
         switch (accion) {
+            case "listar":
+                List<Categoria> lp1 = cdao.listar();
+                json = objGson.toJson(lp1);
+                
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write(json);
+                break;
             case "add":
 
                 String cate = request.getParameter("cate");

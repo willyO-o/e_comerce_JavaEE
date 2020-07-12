@@ -1,0 +1,33 @@
+para la instalacion
+
+
+requisitos:
+tener instalado xamp, wamp o mamp; o cualquier programa que ejecute MySql
+tener instalado apache tomcat v 8.*
+
+--ejecutar mysql
+
+1. en mysql crear la base de datos con el nombre: bd_proyecto   con la 
+2. dentro de la base de datos bd_proyecto importar el archivo: "bd_proyecto.sql" que contiene la base de datos del proyecto
+3. luego copiar el archivo del proyecto llamado: e_comerce en la ruta: "C//:"  para su correcto funcionamiento (usar esta ruta si o si)
+4  ejecutar el proyecto
+
+nota: por defecto la conexion a la base de datos esta con user: "root"   y passwrod: ""
+	que pueden ser cambiados dentro del paquete Config en la clase "Conexion.java"
+
+si existe algun error de librerias : las librerias necesarias para la correccion estaran en la carpeta: "librerias" dentro del comprimido
+
+******************************************************
+para acceder como administrador puede usar las cuentas:
+correo: admin@gmail.com
+password: admin
+-------
+correo: wil@gmail.com
+password: wil
+*************************************************
+para acceder como cliente y hacer pedidos puede usar
+
+correo: jose@gmail.com
+password: jose
+
+o crear un nuevo usuario en la seccion de registro

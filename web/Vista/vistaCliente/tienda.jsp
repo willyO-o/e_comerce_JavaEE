@@ -1,4 +1,4 @@
-<c:choose>  
+wom<c:choose>  
     <c:when test="${param.marca!=null}">  
 
         <sql:query dataSource = "${conn}" var = "rp">
@@ -27,10 +27,10 @@
 <!-- Title Page -->
 <section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(images/heading-pages-02.jpg);">
     <h2 class="l-text2 t-center">
-        Women 
+        Damas 
     </h2>
     <p class="m-text13 t-center">
-        New Arrivals Women Collection 2018 
+        Nueva coleccion para damas 2020
     </p>
 </section>
 
@@ -137,9 +137,8 @@
 
                 <!-- Pagination -->
                 <div class="pagination flex-m flex-w p-t-26">
-                    <a href="" class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>
-                    <a class="item-pagination flex-c-m trans-0-4 " disabled>2</a>
-                    <a  class="item-pagination flex-c-m trans-0-4 " disabled>3</a>
+                    <a href="" class="item-pagination flex-c-m trans-0-4 active-pagination disabled">1</a>
+
                 </div>
             </div>
         </div>

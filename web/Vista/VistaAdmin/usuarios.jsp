@@ -8,12 +8,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Starter Page</h1>
+                    <h1 class="m-0 text-dark">Administrar Usuarios</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="?menu=main">Administracion</a></li>
-                        <li class="breadcrumb-item active">Productos</li>
+                        <li class="breadcrumb-item active">Usuarios</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -27,13 +27,13 @@
             <div class="card">
                 <div class="card-body">
                     <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-user" id="btn-agreUs">
-                        Agregar Nuevo Producto
+                        Agregar Nuevo Usuario
                     </button>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Listado de Productos</h3>
+                    <h3 class="card-title">Listado de Usuarios</h3>
                 </div>
                 <!-- /.card-header -->
 

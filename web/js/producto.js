@@ -10,11 +10,12 @@ $(function () {
 
     $("#add-prod").on("submit", function (e) {
         e.preventDefault();
-        let form = $(this);
-        //console.log("clic"); 
-        if (form.attr("action") === "ControladorProducto?accion=add") {
-            let datos = new FormData(form);
-            //console.log(datos);
+        let form = $("#add-prod");
+        //console.log(form.attr("method")); 
+        if (form.attr("action") == "ControladorProducto?accion=add") {
+            //console.log(form);
+            let datos = new FormData(document.getElementById("add-prod"));
+            
             formProd(datos, form);
         } else {
             let datos = form.serializeArray();
@@ -130,7 +131,7 @@ $(function () {
 
     $("#btn-agrePr").on("click", function () {
         $("#add-prod").attr("action", "ControladorProducto?accion=add");
-        $("#add-prod")[0].reset();
+        //$("#add-prod")[0].reset();
         $("#add-prod").attr("enctype", "multipart/form-data");
         $("#fm-img").removeAttr("disabled");
         $("#fm-img2").removeAttr("disabled");
