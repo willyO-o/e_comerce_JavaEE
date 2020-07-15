@@ -7,10 +7,11 @@ tener instalado apache tomcat v 8.*
 
 --ejecutar mysql  con phpMyAdmin
 
-1. en mysql crear la base de datos con el nombre: bd_proyecto   con la 
+1. en mysql crear la base de datos con el nombre: 'bd_proyecto'   que se encuentra detro de la 	carpeta del proyecto
 2. dentro de la base de datos bd_proyecto importar el archivo: "bd_proyecto.sql" que contiene la base de datos del proyecto
 3. luego copiar el archivo del proyecto llamado: e_comerce en la ruta: "C//:"  para su correcto funcionamiento (usar esta ruta si o si)
-4  ejecutar el proyecto
+4. Cambiar el nombre del la carpeta del proyecto por 'e_comerce' quedando la ruta asi : 'C:\e_comerce' (esto es necesario para mover las imagenes que se subiran ya que el programa maneja la ruta 'C:\e_comerce\img' para almacenar las imagenes subidas mediante un formulario )
+5.  ejecutar el proyecto desde netbeans...
 
 nota: por defecto la conexion a la base de datos esta con user: "root"   y passwrod: ""
 	que pueden ser cambiados dentro del paquete Config en la clase "Conexion.java"
