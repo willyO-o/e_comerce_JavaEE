@@ -16,25 +16,27 @@ Se utilizo la version Java 7, Mysql 5.X y apache tomcat 8.X
 <p align="center"> Pagina para Clientes</p>
 
 
-![Screenshot_2021-01-19 Screenshot](https://user-images.githubusercontent.com/56971398/105057507-ac9dc580-5a4b-11eb-9884-0c2b41c173f6.png)
+![Screenshot_2021-01-19 Screenshot(2)](https://user-images.githubusercontent.com/56971398/105058611-c8ee3200-5a4c-11eb-9ce6-2464e8888759.jpg)
 
-![Screenshot_2021-01-19 Screenshot(2)](https://user-images.githubusercontent.com/56971398/105057514-adcef280-5a4b-11eb-84ff-2e75ccc31215.jpg)
+![Screenshot_2021-01-19 Screenshot](https://user-images.githubusercontent.com/56971398/105058634-cdb2e600-5a4c-11eb-957d-2a28182da715.jpg)
 
-![Screenshot_2021-01-19 Screenshot(1)](https://user-images.githubusercontent.com/56971398/105057523-af001f80-5a4b-11eb-90ab-5dfaef19df1c.jpg)
+![Screenshot_2021-01-19 Screenshot(1)](https://user-images.githubusercontent.com/56971398/105058647-d0add680-5a4c-11eb-9f24-7511b5c52bf8.jpg)
 
-![Screenshot_2021-01-19 Screenshot](https://user-images.githubusercontent.com/56971398/105057531-b0314c80-5a4b-11eb-86ba-aaa110fb5e73.jpg)
+![Screenshot_2021-01-19 Screenshot](https://user-images.githubusercontent.com/56971398/105058630-cc81b900-5a4c-11eb-88c3-5c130812d8f6.png)
+
+
 
 
 <p align="center"> Pagina para Administracion</p>
 
 
-![Screenshot_2021-01-19 Administracion(3)](https://user-images.githubusercontent.com/56971398/105057484-a9a2d500-5a4b-11eb-966e-c186048868c7.png)
+![Screenshot_2021-01-19 Administracion](https://user-images.githubusercontent.com/56971398/105058617-cab7f580-5a4c-11eb-81b9-e9bde90a1722.png)
 
+![Screenshot_2021-01-19 Administracion(1)](https://user-images.githubusercontent.com/56971398/105058620-cb508c00-5a4c-11eb-8fc9-e145104674a2.png)
 
-![Screenshot_2021-01-19 Administracion(2)](https://user-images.githubusercontent.com/56971398/105057491-aa3b6b80-5a4b-11eb-9d1d-a84666c06f58.png)
+![Screenshot_2021-01-19 Administracion(2)](https://user-images.githubusercontent.com/56971398/105058621-cb508c00-5a4c-11eb-9a57-585e1763b289.png)
 
-![Screenshot_2021-01-19 Factura](https://user-images.githubusercontent.com/56971398/105057493-aad40200-5a4b-11eb-8b8d-ad5b118aaa14.png)
+![Screenshot_2021-01-19 Administracion(3)](https://user-images.githubusercontent.com/56971398/105058624-cbe92280-5a4c-11eb-9cad-d0503c3cda1c.png)
 
-![Screenshot_2021-01-19 Administracion(1)](https://user-images.githubusercontent.com/56971398/105057495-ab6c9880-5a4b-11eb-81e3-b0f925bcc43a.png)
+![Screenshot_2021-01-19 Factura](https://user-images.githubusercontent.com/56971398/105058626-cc81b900-5a4c-11eb-8920-f4e3a06395f6.png)
 
-![Screenshot_2021-01-19 Administracion](https://user-images.githubusercontent.com/56971398/105057502-ac052f00-5a4b-11eb-82c2-2d66ca6326ee.png)
