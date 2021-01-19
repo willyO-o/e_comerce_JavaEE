@@ -24,9 +24,12 @@ Se utilizo la version Java 7, Mysql 5.X y apache tomcat 8.X
 
 ![Screenshot_2021-01-19 Screenshot](https://user-images.githubusercontent.com/56971398/105057531-b0314c80-5a4b-11eb-86ba-aaa110fb5e73.jpg)
 
-![Screenshot_2021-01-19 Administracion(3)](https://user-images.githubusercontent.com/56971398/105057484-a9a2d500-5a4b-11eb-966e-c186048868c7.png)
 
 <p align="center"> Pagina para Administracion</p>
+
+
+![Screenshot_2021-01-19 Administracion(3)](https://user-images.githubusercontent.com/56971398/105057484-a9a2d500-5a4b-11eb-966e-c186048868c7.png)
+
 
 ![Screenshot_2021-01-19 Administracion(2)](https://user-images.githubusercontent.com/56971398/105057491-aa3b6b80-5a4b-11eb-9d1d-a84666c06f58.png)
 
